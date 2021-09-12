@@ -53,6 +53,15 @@ export const Table = ({ items, desiredCols }: TableProps) => {
                         </>
                       );
                     }
+                    if (col === "url") {
+                      return (
+                        <>
+                          <td>
+                            <a href={item[col]}>{item[col]}</a>
+                          </td>
+                        </>
+                      );
+                    }
                     return (
                       <>
                         <td>{item[col]}</td>

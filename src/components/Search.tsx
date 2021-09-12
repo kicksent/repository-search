@@ -48,67 +48,74 @@ export const Search = ({ input, onChangeInput }: SearchProps) => {
   ];
 
   return (
-    <div>
-      <div className="searchInput">
-        <h2>Searching for {input}</h2>
-        <input
-          type="text"
-          placeholder="search..."
-          onChange={debouncedChangeHandler}
-        />
-      </div>
-      <div className="checkbox">
-        <input
-          type="checkbox"
-          value={"starSort"}
-          checked={starSort}
-          onChange={() => setStarSort(!starSort)}
-        />
-        <label htmlFor={"starSort"}>Sort by Stars</label>
-      </div>
-      <div className="radio-container">
-        <div className="radio">
-          <label>
-            <input
-              type="radio"
-              value="option1"
-              checked={language === "python"}
-              onClick={() => setLanguage("python")}
-            />
-            python
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="option2"
-              checked={language === "js"}
-              onClick={() => setLanguage("js")}
-            />
-            js
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="option3"
-              checked={language === "assembly"}
-              onClick={() => setLanguage("assembly")}
-            />
-            assembly
-          </label>
+    <div className="centeredContent">
+      <div className="centeredContentFloat">
+        <div className="searchInput">
+          <h2>Searching for {input}</h2>
+          <input
+            type="text"
+            placeholder="search..."
+            onChange={debouncedChangeHandler}
+          />
         </div>
+        <div className="checkbox">
+          <input
+            type="checkbox"
+            value={"starSort"}
+            checked={starSort}
+            onChange={() => setStarSort(!starSort)}
+          />
+          <label htmlFor={"starSort"}>Sort by Stars</label>
+        </div>
+        <div className="radio-container">
+          <div className="radio">
+            <label>
+              <input
+                type="radio"
+                value="option1"
+                checked={language === "python"}
+                onClick={() => setLanguage("python")}
+              />
+              python
+            </label>
+          </div>
+          <div className="radio">
+            <label>
+              <input
+                type="radio"
+                value="option2"
+                checked={language === "js"}
+                onClick={() => setLanguage("js")}
+              />
+              js
+            </label>
+          </div>
+          <div className="radio">
+            <label>
+              <input
+                type="radio"
+                value="option3"
+                checked={language === "assembly"}
+                onClick={() => setLanguage("assembly")}
+              />
+              assembly
+            </label>
+          </div>
+        </div>
+
+        {items && (
+          <p>
+            Displaying first <b>{items.length}</b> results...
+          </p>
+        )}
+        <p>
+          Sorting by <b>{starSort ? "stars" : "best(default)"}</b>
+        </p>
+        <p>
+          Total results count: <b>{count ? count : 0}</b>
+        </p>
       </div>
 
-      {items && (
-        <p>
-          Displaying first <b>{items.length}</b> results...
-        </p>
-      )}
-      <p>
-        Sorting by <b>{starSort ? "stars" : "best(default)"}</b>
-      </p>
-      <p>
-        Total results count: <b>{count ? count : 0}</b>
-      </p>
       <Table items={items} desiredCols={desiredCols} />
     </div>
   );

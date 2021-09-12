@@ -8,4 +8,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Overview
 
-This project queries the github api for repositories matching a search query, browse by best or stars, and filter with one of three languages(simplified since it requires an exact match in the param). You can select a button to view details about an individual repo once you have found it.
+This project queries the github api for repositories matching a search query, browse by best or stars, and filter with one of three languages(simplified since it requires an exact match in the param). You can select a button to view details about an individual repo once you have found it. I also added a debounce so the query doesn't spam the api which I think is a preferred feature for these types of search bars instead of a submit button.
